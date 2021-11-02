@@ -1,0 +1,65 @@
+/*GENERAL*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Libre Franklin', sans-serif;
+
+    font-family: 'Oxygen', sans-serif;
+}
+
+
+/*UTILITIES*/
+
+.m-15{
+    margin: 15px;
+}
+
+.play{
+    width: 90px;
+}
+
+.level{
+    width: 150px;
+
+}
+
+/*HEADER*/
+
+header{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    width: 80px;
+    height: 80px;
+}
+
+/*MAIN*/
+
+main{
+    background-color:#7fffd4 ;
+}
+
+/*FOOTER*/
+
+footer{
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+.boolean{
+    text-decoration: underline;
+    color:#8c64b0 ;
+
+}
