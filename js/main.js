@@ -42,7 +42,17 @@ btn.addEventListener (`click`, () => {
 
     //genera grid
 
-    const grid = document.createElement(`div`);
-    grid.classList.add(`grid`);
+    const grid = document.createElement('div');
+    grid.classList.add('grid');
 
-} )
+    //inserisci grid
+
+    wrapGrid.append(grid);
+
+    //genera square
+
+    for (let i = 0; i <= cellsNum; i++){
+        
+    }
+
+} );
