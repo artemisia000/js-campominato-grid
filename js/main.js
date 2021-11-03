@@ -5,26 +5,25 @@
 //con difficoltà 3 => tra 1 e 49Quando l’utente clicca su ogni cella, la cella cliccata si colora di azzurro.
 
 
-const btn = document.querySelector(`.play`);
-const wrapGrid = document.querySelector(`.wrap-grid`);
-const levelOne = document.getElementById(`level`);
+const btn = document.querySelector('.play');
+const wrapGrid = document.querySelector('.wrap-grid');
+const levels = document.getElementById('levels');
 
 //settare le grid
 
-btn.addEventListener (`click`, () => {
+btn.addEventListener(`click`, () => {
     
     //reset content
     wrapGrid.innerHTML = '';
     
     //set dimensione grid
 
-    const gridDimension = levelOne.value;
-    console.log(gridDimension);
+   
 
     let cellsNum;
     let cellsSide;
 
-    switch (gridDimension) {
+    switch (levels.value) {
         case `1`:
             cellsNum = 100;
             cellsSide = 10;
@@ -41,19 +40,39 @@ btn.addEventListener (`click`, () => {
     console.log(cellsNum);
     console.log(cellsSide);
 
-    const gridEl = document.querySelector('.grid');
+    const grid = document.createElement('div');
+    grid.classList.add('grid');
 
-    //genera square
+    for (let i = 0; i <= cellsNum; i++){
 
-    function createGridSquare(cellsNum,cellsSide){
-        for (let i = 0; i <= cellsNum; i++){
-            const node = document.createElement('div');
-        node.classList.add('square', `square${cellsNum}`);
-        return node;
+        const square = createGridSquare(i, cellsSide); 
 
-    }}
+        square.addEventListener('click', () => {
+            square.classList.add('clicked');
+        });
+        
+        grid.append(square);
+    }
 
+        wrapGrid.append(grid);
+   
 } );
+
+
+
+function createGridSquare(num, cells){
+   const nodo = document.createElement('div');
+
+   nodo.classList.add('square');
+   nodo.style.width = `calc(100% / ${cells})`;
+   nodo.style.height = `calc(100% / ${cells})`;
+
+   nodo.append(num);
+
+   return nodo;
+
+}
+
 
     
 
