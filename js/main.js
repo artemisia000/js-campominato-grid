@@ -45,22 +45,17 @@ btn.addEventListener (`click`, () => {
 
     //genera square
 
+    function createGridSquare(cellsNum,cellsSide){
+        for (let i = 0; i <= cellsNum; i++){
+            const node = document.createElement('div');
+        node.classList.add('square', `square${cellsNum}`);
+        return node;
 
-    for (let i = 0; i <= cellsNum; i++){
-        const squareEl = createGridSquare();
-        //crea la square
-        const squareEl = createGridSquare();
-        //aggiungi square al container
-        gridEl.append(cellsNum);
-
-
-    }
+    }}
 
 } );
 
-    function createGridSquare(){
-        const node = document.createElement('div');
-        node.classList.add('square');
-        return node;
-    }
+    
 
+
+    

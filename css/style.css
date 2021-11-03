@@ -22,7 +22,6 @@
 
 #level{
     width: 170px;
-
 }
 
 /*HEADER*/
@@ -48,7 +47,11 @@ header{
 
 main{
     background-color:#7fffd4 ;
+    text-align: center;
+    padding-bottom:60px;
 }
+
+
 
 .grid{
     display: flex;
