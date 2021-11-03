@@ -17,6 +17,7 @@ btn.addEventListener (`click`, () => {
     wrapGrid.innerHTML = '';
     
     //set dimensione grid
+
     const gridDimension = levelOne.value;
     console.log(gridDimension);
 
@@ -40,19 +41,26 @@ btn.addEventListener (`click`, () => {
     console.log(cellsNum);
     console.log(cellsSide);
 
-    //genera grid
-
-    const grid = document.createElement('div');
-    grid.classList.add('grid');
-
-    //inserisci grid
-
-    wrapGrid.append(grid);
+    const gridEl = document.querySelector('.grid');
 
     //genera square
 
+
     for (let i = 0; i <= cellsNum; i++){
-        
+        const squareEl = createGridSquare();
+        //crea la square
+        const squareEl = createGridSquare();
+        //aggiungi square al container
+        gridEl.append(cellsNum);
+
+
     }
 
 } );
+
+    function createGridSquare(){
+        const node = document.createElement('div');
+        node.classList.add('square');
+        return node;
+    }
+
