@@ -63,6 +63,10 @@ main{
     margin: 50px auto;
 }
 
+.grid.end-game .square{
+    pointer-events: none;
+}
+
 .square{
     display: flex;
     justify-content: center;
@@ -71,9 +75,19 @@ main{
     cursor: pointer;
 }
 
-.square.clicked{
+.square.bomb,
+.square.safe{
     color: #fff;
+    cursor: default;
+
+}
+
+.square.safe{
     background: cornflowerblue;
+}
+
+.square.bomb{   
+    background: rgb(199, 22, 22);
 }
 
 /*FOOTER*/

@@ -5,6 +5,7 @@
 //con difficoltà 3 => tra 1 e 49Quando l’utente clicca su ogni cella, la cella cliccata si colora di azzurro.
 
 
+
 const btn = document.querySelector('.play');
 const wrapGrid = document.querySelector('.wrap-grid');
 const levels = document.getElementById('levels');
@@ -22,7 +23,7 @@ btn.addEventListener(`click`, () => {
     let cellsSide;
 
     switch (levels.value) {
-        case `3`:
+        case `1`:
             cellsNum = 100;
             cellsSide = 10;
             break;
@@ -30,12 +31,23 @@ btn.addEventListener(`click`, () => {
             cellsNum = 81;
             cellsSide = 9;
             break;
-        case `1`:
+        case `3`:
                 cellsNum = 49;
                 cellsSide = 7;
     }
     console.log(cellsNum);
     console.log(cellsSide);
+
+
+    //generazione bombe
+    const bombList = generateBombs( cellsNum, 16 );
+    console.log('Bombe generate:' ,bombList);
+
+    //lista dei tentativi
+    const attempts = [];
+    const maxAttempts = cellsNum - bombList.length;
+    console.log('Tentativi riusciti:' ,attempts)
+  
 
     const grid = document.createElement('div');
     grid.classList.add('grid');
@@ -45,7 +57,9 @@ btn.addEventListener(`click`, () => {
         const square = createGridSquare(i, cellsSide); 
 
         square.addEventListener('click', () => {
-            square.classList.add('clicked');
+            // square.classList.add('clicked');
+            //invocazione funzione click
+            handleSquareClick(square , bombList , attempts , maxAttempts);         
         });
         
         grid.append(square);
@@ -55,6 +69,111 @@ btn.addEventListener(`click`, () => {
 
 
 
+
+/***
+ * Gestion click squares
+ */
+function handleSquareClick(square , bombList , attempts , maxAttempts) {
+
+    //ottieni numero square
+    const number = parseInt(square.innerHTML);
+    console.log(number);
+
+    //colpito bomba?
+    if(bombList.includes(number)){
+        // console.log('Bomba colpita!');
+        endGame(bombList , attempts , maxAttempts);
+
+    }//non è una bomba ne un numero generato prima
+    else if(!attempts.includes(number)){
+        //aggiungere colore di sfondo square
+        square.classList.add('safe');
+
+        //aggiungere numero alla lista tentativi
+        attempts.push(number);
+        console.log('Tentativi riusciti:' , attempts);
+
+        //controllo se i tentativi è uguale al numero max tentativi possibili
+        if(attempts.length === maxAttempts) {
+            // console.log('Hai vinto!');
+            endGame(bombList , attempts , maxAttempts);
+        }
+    }
+}
+
+
+
+
+/***
+ * End Game Logic
+ */
+function endGame(bombList , attempts , maxAttempts) {
+    //ottenere tutte le square
+    const squares = document.querySelectorAll('.square');
+    console.log(squares);//array di node,di tutte le square
+
+    //mostrare tutte le bombe
+    for (let i = 0; i < squares.length; i++) {
+        const square = squares[i];
+        const squareValue = parseInt(square.innerHTML);
+
+        if(bombList.includes(squareValue)) {
+            square.classList.add('bomb');
+        }
+    }
+    //Test del messaggio End Game
+    let message = `Complimenti Hai Vinto! Hai indovinato ${maxAttempts} tentativi.`;
+
+    //in caso di perdita
+    if(attempts.length < maxAttempts) {
+        message = `Peccato hai perso :( ! Hai indovinato ${attempts.length}.Gioca ancora...`;
+    } 
+    
+    //elemento del messaggio 
+    const messageEl = document.createElement('div');
+    messageEl.classList.add('message' , 'text-center');
+    messageEl.append(message);
+
+    document.querySelector('.wrap-grid').append(messageEl);
+
+    //disabilita le square a partita finita
+    document.querySelector('.grid').classList.add('.end-game');
+
+}
+
+
+/**
+ * Gen Bombs
+ */
+function generateBombs( totCells , totBombs ) {
+    //16 random univoco
+    const bombs = [];
+
+    while (bombs.length < totBombs) {
+        //gen random number 
+        const bomb = getRandomNumber(1 , totCells)
+
+        //controllo che sia univoco,non presente nella lista bombs
+        if( !bombs.includes(bomb) ) {
+            bombs.push(bomb);
+        }
+    }
+    return bombs;
+}
+
+
+/**
+ * Gen number Random
+ */
+function getRandomNumber(min , max ) {
+    return Math.floor( Math.random() * (max - min + 1) + min);
+}
+
+
+
+/**
+ * Gen Square
+ */
 function createGridSquare(num, cells){
    const nodo = document.createElement('div');
 
@@ -65,7 +184,6 @@ function createGridSquare(num, cells){
    nodo.append(num);
 
    return nodo;
-
 }
 
 
