@@ -22,7 +22,7 @@ btn.addEventListener(`click`, () => {
     let cellsSide;
 
     switch (levels.value) {
-        case `1`:
+        case `3`:
             cellsNum = 100;
             cellsSide = 10;
             break;
@@ -30,7 +30,7 @@ btn.addEventListener(`click`, () => {
             cellsNum = 81;
             cellsSide = 9;
             break;
-        case `3`:
+        case `1`:
                 cellsNum = 49;
                 cellsSide = 7;
     }

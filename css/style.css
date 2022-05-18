@@ -31,7 +31,7 @@ body{
 /*HEADER*/
 
 header{
-    height: 100px;
+    height: 80px;
     display: flex;
     background-color: #fff;
     justify-content: space-between;
@@ -51,20 +51,16 @@ header{
 /*MAIN*/
 
 main{
-    
     text-align: center;
-    padding-bottom:60px;
+    padding-bottom:30px;
 }
-
-
 
 .grid{
     display: flex;
     flex-wrap: wrap;
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     margin: 50px auto;
-
 }
 
 .square{
@@ -85,13 +81,11 @@ main{
 footer{
     display: flex;
     align-items: center;
-    align-content: flex-end;
-    height: 100px;
+    height: 80px;
     background-color: #fff;
 }
 
 .boolean{
     text-decoration: underline;
     color:#8c64b0 ;
-
 }
