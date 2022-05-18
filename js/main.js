@@ -18,8 +18,6 @@ btn.addEventListener(`click`, () => {
     
     //set dimensione grid
 
-   
-
     let cellsNum;
     let cellsSide;
 
@@ -35,7 +33,6 @@ btn.addEventListener(`click`, () => {
         case `3`:
                 cellsNum = 49;
                 cellsSide = 7;
-
     }
     console.log(cellsNum);
     console.log(cellsSide);
@@ -43,7 +40,7 @@ btn.addEventListener(`click`, () => {
     const grid = document.createElement('div');
     grid.classList.add('grid');
 
-    for (let i = 0; i <= cellsNum; i++){
+    for (let i = 1; i <= cellsNum; i++){
 
         const square = createGridSquare(i, cellsSide); 
 
@@ -53,10 +50,8 @@ btn.addEventListener(`click`, () => {
         
         grid.append(square);
     }
-
         wrapGrid.append(grid);
-   
-} );
+});
 
 
 

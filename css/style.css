@@ -5,8 +5,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Libre Franklin', sans-serif;
-
     font-family: 'Oxygen', sans-serif;
+}
+
+body{
+    background-color:#7fffd4 ;
+    height: 100vh;
 }
 
 
@@ -29,6 +33,7 @@
 header{
     height: 100px;
     display: flex;
+    background-color: #fff;
     justify-content: space-between;
     align-items: center;
 }
@@ -46,7 +51,7 @@ header{
 /*MAIN*/
 
 main{
-    background-color:#7fffd4 ;
+    
     text-align: center;
     padding-bottom:60px;
 }
@@ -59,7 +64,7 @@ main{
     width: 600px;
     height: 600px;
     margin: 50px auto;
-    border: 2px solid #000;
+
 }
 
 .square{
@@ -80,7 +85,9 @@ main{
 footer{
     display: flex;
     align-items: center;
+    align-content: flex-end;
     height: 100px;
+    background-color: #fff;
 }
 
 .boolean{
