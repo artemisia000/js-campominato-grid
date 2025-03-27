@@ -11,6 +11,9 @@
 body{
     background-color:#7fffd4 ;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 
@@ -28,12 +31,20 @@ body{
     width: 170px;
 }
 
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
 /*HEADER*/
 
 header{
     height: 80px;
-    display: flex;
     background-color: #fff;
+}
+
+.toolbar{
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
@@ -44,15 +55,21 @@ header{
 }
 
 .logo img{
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
 }
 
 /*MAIN*/
 
 main{
-    text-align: center;
-    padding-bottom:30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+main h2 {
+    font-size: 60px;
 }
 
 .grid{
@@ -61,6 +78,7 @@ main{
     width: 500px;
     height: 500px;
     margin: 50px auto;
+    border: 2px solid #000;
 }
 
 .grid.end-game .square{
@@ -97,6 +115,7 @@ footer{
     align-items: center;
     height: 80px;
     background-color: #fff;
+    width: 100%;
 }
 
 .boolean{

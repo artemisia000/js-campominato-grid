@@ -24,16 +24,16 @@ btn.addEventListener(`click`, () => {
 
     switch (levels.value) {
         case `1`:
-            cellsNum = 100;
-            cellsSide = 10;
+            cellsNum = 49;
+            cellsSide = 7;
             break;
         case `2`:
             cellsNum = 81;
             cellsSide = 9;
             break;
         case `3`:
-                cellsNum = 49;
-                cellsSide = 7;
+            cellsNum = 100;
+            cellsSide = 10;
     }
     console.log(cellsNum);
     console.log(cellsSide);
@@ -126,7 +126,7 @@ function endGame(bombList , attempts , maxAttempts) {
 
     //in caso di perdita
     if(attempts.length < maxAttempts) {
-        message = `Peccato hai perso :( ! Hai indovinato ${attempts.length}.Gioca ancora...`;
+        message = `Peccato hai perso :( ! Hai indovinato ${attempts.length}. Gioca ancora...`;
     } 
     
     //elemento del messaggio 

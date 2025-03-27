@@ -14,40 +14,41 @@
 
   <!--header-->
 
-    <header class="toolbar" >
-
-        <div class="logo">
-            <img class="m-15" src="./img/logo.png" alt="">
-            <h1>Campo Minato:la Griglia</h1>
+    <header>
+        <div class="container">
+            <div class="toolbar">
+                <div class="logo">
+                    <img class="m-15" src="./img/logo.png" alt="">
+                    <h1>Campo Minato:la Griglia</h1>
+                </div>
+        
+                <div class="menu">
+                   <label for="level">
+                       Difficoltà:
+                   </label>
+                   <select id="levels">
+                      <option value="1">Easy</option>
+                      <option value="2">Medium</option>
+                      <option value="3">Hard</option>
+                   </select>
+                   <button class="play m-15" >Play</button>
+                </div>  
+            </div>
         </div>
-
-        <div class="menu">
-           <label for="level">
-               Difficoltà:
-           </label>
-           <select id="levels">
-              <option value="1">Easy</option>
-              <option value="2">Medium</option>
-              <option value="3">Hard</option>
-           </select>
-           <button class="play m-15" >Play</button>
-        </div>  
-
     </header>
 
   <!--main-->
 
     <main class="container wrap-grid" >
         <h2>Seleziona il livello per la griglia</h2>
-
-       
-
     </main>
 
   <!--footer-->
 
     <footer>
-        <h3 class="m-15" >Made with &hearts; by <span class="boolean" >Boolean</span></h3>
+        <div class="container">
+            <h3 class="m-15" >Made with &hearts; by <span class="boolean" >Boolean</span></h3>
+        </div>
     </footer>
     <script src="./js/main.js"></script>
 </body>
