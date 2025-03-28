@@ -23,15 +23,15 @@ btn.addEventListener(`click`, () => {
     let cellsSide;
 
     switch (levels.value) {
-        case `1`:
+        case "1":
             cellsNum = 49;
             cellsSide = 7;
             break;
-        case `2`:
+        case "2":
             cellsNum = 81;
             cellsSide = 9;
             break;
-        case `3`:
+        case "3":
             cellsNum = 100;
             cellsSide = 10;
     }
@@ -40,7 +40,7 @@ btn.addEventListener(`click`, () => {
 
 
     //generazione bombe
-    const bombList = generateBombs( cellsNum, 16 );
+    const bombList = generateBombs( cellsNum, 16);
     console.log('Bombe generate:' ,bombList);
 
     //lista dei tentativi
@@ -48,25 +48,26 @@ btn.addEventListener(`click`, () => {
     const maxAttempts = cellsNum - bombList.length;
     console.log('Tentativi riusciti:' ,attempts)
   
-
+    //gen grid
     const grid = document.createElement('div');
     grid.classList.add('grid');
 
     for (let i = 1; i <= cellsNum; i++){
-
+        //gen singola square (function)
         const square = createGridSquare(i, cellsSide); 
-
+        //click square
         square.addEventListener('click', () => {
             // square.classList.add('clicked');
+            
             //invocazione funzione click
             handleSquareClick(square , bombList , attempts , maxAttempts);         
         });
-        
+        //aggiuntadi square a grid
         grid.append(square);
     }
+        //inserire grid in .wrap-grid
         wrapGrid.append(grid);
 });
-
 
 
 
@@ -102,14 +103,12 @@ function handleSquareClick(square , bombList , attempts , maxAttempts) {
 }
 
 
-
-
 /***
  * End Game Logic
  */
 function endGame(bombList , attempts , maxAttempts) {
     //ottenere tutte le square
-    const squares = document.querySelectorAll('.square');
+    const squares = document.querySelectorAll('.square');//torna un array di tanti nodi html con classe square
     console.log(squares);//array di node,di tutte le square
 
     //mostrare tutte le bombe
@@ -145,7 +144,7 @@ function endGame(bombList , attempts , maxAttempts) {
 /**
  * Gen Bombs
  */
-function generateBombs( totCells , totBombs ) {
+function generateBombs(totCells , totBombs) {
     //16 random univoco
     const bombs = [];
 
@@ -165,7 +164,7 @@ function generateBombs( totCells , totBombs ) {
 /**
  * Gen number Random
  */
-function getRandomNumber(min , max ) {
+function getRandomNumber(min , max) {
     return Math.floor( Math.random() * (max - min + 1) + min);
 }
 
@@ -175,14 +174,15 @@ function getRandomNumber(min , max ) {
  * Gen Square
  */
 function createGridSquare(num, cells){
+    //creazione nodo
    const nodo = document.createElement('div');
-
+   //add classe e dimensioni al nodo
    nodo.classList.add('square');
    nodo.style.width = `calc(100% / ${cells})`;
    nodo.style.height = `calc(100% / ${cells})`;
-
+   //inserire numero dentro nodo
    nodo.append(num);
-
+   //ritornare il nodo
    return nodo;
 }
 
